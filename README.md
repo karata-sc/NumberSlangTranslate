@@ -20,9 +20,7 @@ ROSのトピック通信を使用する．
 ---
 実行環境
 ---
-* Raspberry Pi : 3 model B+
-* OS(Pi) : Ubuntu MATE 18.04 LTS
-* OS(PC) : Ubuntu 18.04 LTS 
+* Ubuntu 18.04 LTS 
 * ROS Melodic
 
 
