@@ -82,7 +82,7 @@ $ input slang: 143
 ---
 動画
 ---
-https://youtu.be/qL7nhUr3ohE
+* https://youtu.be/qL7nhUr3ohE
 
 
 ---
