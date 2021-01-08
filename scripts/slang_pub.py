@@ -1,14 +1,11 @@
 #!/usr/bin/env python2
 import rospy
-from std_msgs.msg import UInt16
+from std_msgs.msg import String
 import sys 
 
 rospy.init_node('input')                                
-pub = rospy.Publisher('slang', UInt16, queue_size=1)  
-rate = rospy.Rate(10)                                  
-n = 0 
+pub = rospy.Publisher('slang', String, queue_size=1)  
 while not rospy.is_shutdown():
-    n = input('input slang: ')
+    n = String()
+    n.data = raw_input('input message: ')
     pub.publish(n)
-    rate.sleep()
-
