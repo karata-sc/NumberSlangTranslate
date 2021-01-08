@@ -7,87 +7,75 @@
 
 英語圏では数列で意味を伝えるナンバースラングという文化がある．
 
-今回はROSのトピック通信にその翻訳機能を付与したプログラムを作成した．
+（例）I love you : 137
 
-以下に実行時の画像を示す．
+ROSのトピック通信を使用し，PCのキーボードから入力した文章をナンバースラングに翻訳してLEDアレイの点灯で表現するプログラムを作成した．
 
-キーボードから入力したナンバースラングをパブリッシャのノードでメッセージとして送信し，サブスクライバのノードでメッセージを受信後，そのスラングの意味を標準出力に出力する．
+![](https://i.gyazo.com/e8a224828473fe35c3156916dd52b429.gif)
 
+PCのキーボードから入力した文章はパブリッシャのノードでメッセージとして発信され，Raspberry Piのサブスクライバのノードで受信される．
 
-![](https://i.gyazo.com/b954dcc9be110eeda8c1ad084bfef7c0.png)
+その後ナンバースラングに翻訳され，Raspberry Piに接続された8個のLEDがナンバースラングの１の位から１桁ごとに桁の数字の分だけ点灯する．
 
+（例）I love you : 143 → LED１個点灯，LED４個点灯，LED３個点灯
 
-ナンバースラングについては以下のサイトを参考にした．
-* https://e-news67.com/number-slang
 
 
 ---
 実行環境
 ---
-* Ubuntu 18.04 LTS 
+* ORACLE VM VirtualBox 6.1 (Ubuntu 18.04 LTS Desktop)
+* Raspberry Pi 3 model B+  (Ubuntu MATE 18.04 LTS)
 * ROS Melodic
 
+以下の図のように，Raspberry PiとLEDを接続する．
 
+![](https://i.gyazo.com/0ef4ae9163ba8614c9089770a8faaee9.png)
+
+![](https://i.gyazo.com/c209de0f59cd3cb7d55deac9a3d7c219.jpg)
 ---
 使用方法
 ---
 ※ワークスペースを含むROSの実行環境は準備出来ているものとする．
 
-1. ROSのワークスペースにパッケージをクローン
+まず，PC，Raspberry PiともにROSのワークスペースにパッケージをクローンする．
 ```
 $ cd ~/catkin_ws/src
 $ git clone https://github.com/karata-sc/NumberSlangTranslate.git
 ```
 
-2. `roscore` を実行
-
+PCをROSのMASTERとするため，PCで環境変数を設定しパブリッシャを起動する．
 ```
-$ roscore
-```
-
-3. 新規ターミナルを起動しパブリッシャを起動
-
-```
+$ export ROS_MASTER_URI=http://{PCのマシン名}.local:11311
+$ export ROS_HOSTNAME={PCのマシン名}.local
+$ roscore &
 $ rosrun NumberSlangTranslate.git slang_pub.py
 input slang:
 ```
-
-4. 新規ターミナルを起動しサブスクライバを起動
-
+Raspberry Piでも同様に環境変数を設定し，サブスクライバを起動する．
 ```
+$ export ROS_MASTER_URI=http://{PCのマシン名}.local:11311
+$ export ROS_HOSTNAME={Raspberry Piのマシン名}.local
 $ rosrun NumberSlangTranslate.git slang_sub.py
 ```
 
-5. パブリッシャを実行したターミナルで任意のナンバースラングを入力
+パブリッシャを起動した端末で指定の文章を入力するとナンバースラングに翻訳され，Raspberry Piに接続された8個のLEDがナンバースラングの１の位から１桁ごとに桁の数字の分だけ点灯する．
 
-```
-$ input slang: 143
-```
+プログラム内でナンバースラングが定義されていない文章が入力された場合，エラーとなり以下のようにLEDアレイの光がLED1からLED8まで流れる．
 
-サブスクライバを実行したターミナルに翻訳されたスラングが出力される．
-
-```
-[INFO] [1609079136.484591]: 143
->> I love you
-```
-定義されていない数列の場合は以下のように出力される．
-```
-[INFO] [1610028699.154744]: 2
-[UNDEFINED]
-```
-
-
+![](https://i.gyazo.com/77eab77a686110adb08a03075ac12b14.gif)
 
 ---
 動画
 ---
-* https://youtu.be/qL7nhUr3ohE
-
+* https://youtu.be/lb9jdzhQ4gM
 
 ---
 参考文献
 ---
-* ロボットシステム学第10回（ROS）(https://youtu.be/PL85Pw_zQH0)最終閲覧日：2020/12/27) 
+* ロボットシステム学第10回（ROS）(https://youtu.be/PL85Pw_zQH0)最終閲覧日：2020/1/9
+* 第26回 Raspberry PiのGPIOを制御する (Python編)│ツール・ラボ（ https://tool-lab.com/raspberrypi-startup-26/ ）最終閲覧日：2020/1/9
+* 【ナンバースラング】数字で表す英語のスラング&略語をまとめてみた！ | E-NEWS （ https://e-news67.com/number-slang ） 最終閲覧日：2020/1/9
 * 小倉崇(2015)．『ROSではじめるロボットプログラミング』．工学社
 
 
