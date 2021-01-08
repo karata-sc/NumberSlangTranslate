@@ -63,7 +63,7 @@ $ rosrun NumberSlangTranslate.git slang_sub.py
 
 プログラム内でナンバースラングが定義されていない文章が入力された場合，エラーとなり以下のようにLEDアレイの光がLED1からLED8まで流れる．
 
-![](https://i.gyazo.com/77eab77a686110adb08a03075ac12b14.gif)
+![](https://i.gyazo.com/119df12d78d4beacb690f882f17a56e8.gif)
 
 ---
 動画
