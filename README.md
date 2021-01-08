@@ -48,14 +48,14 @@ $ roscore
 3. 新規ターミナルを起動しパブリッシャを起動
 
 ```
-$ rosrun mypkg slang_pub.py
+$ rosrun NumberSlangTranslate.git slang_pub.py
 input slang:
 ```
 
 4. 新規ターミナルを起動しサブスクライバを起動
 
 ```
-$ rosrun mypkg slang_sub.py
+$ rosrun NumberSlangTranslate.git slang_sub.py
 ```
 
 5. パブリッシャを実行したターミナルで任意のナンバースラングを入力
