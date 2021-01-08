@@ -32,7 +32,7 @@ PCのキーボードから入力した文章はパブリッシャのノードで
 
 ![](https://i.gyazo.com/0ef4ae9163ba8614c9089770a8faaee9.png)
 
-![](https://i.gyazo.com/8caed77427cc6f17141e81ed0339994f.png)
+![](https://i.gyazo.com/c209de0f59cd3cb7d55deac9a3d7c219.jpg)
 ---
 使用方法
 ---
