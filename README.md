@@ -73,7 +73,7 @@ $ rosrun NumberSlangTranslate.git slang_sub.py
 ---
 参考文献
 ---
-* ロボットシステム学第10回（ROS）(https://youtu.be/PL85Pw_zQH0)最終閲覧日：2020/1/9
+* ロボットシステム学第10回（ROS）(https://youtu.be/PL85Pw_zQH0) 最終閲覧日：2020/1/9
 * 第26回 Raspberry PiのGPIOを制御する (Python編)│ツール・ラボ（ https://tool-lab.com/raspberrypi-startup-26/ ）最終閲覧日：2020/1/9
 * 【ナンバースラング】数字で表す英語のスラング&略語をまとめてみた！ | E-NEWS （ https://e-news67.com/number-slang ） 最終閲覧日：2020/1/9
 * 小倉崇(2015)．『ROSではじめるロボットプログラミング』．工学社
