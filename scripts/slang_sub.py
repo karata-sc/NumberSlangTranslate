@@ -5,22 +5,11 @@ from std_msgs.msg import String
 import RPi.GPIO
 
 RPi.GPIO.setmode(RPi.GPIO.BCM)
-RPi.GPIO.setup(11, RPi.GPIO.OUT)
-RPi.GPIO.setup(12, RPi.GPIO.OUT)
-RPi.GPIO.setup(13, RPi.GPIO.OUT)
-RPi.GPIO.setup(14, RPi.GPIO.OUT)
-RPi.GPIO.setup(15, RPi.GPIO.OUT)
-RPi.GPIO.setup(16, RPi.GPIO.OUT)
-RPi.GPIO.setup(17, RPi.GPIO.OUT)
-RPi.GPIO.setup(18, RPi.GPIO.OUT)
-RPi.GPIO.output(11, 0)
-RPi.GPIO.output(12, 0)
-RPi.GPIO.output(13, 0)
-RPi.GPIO.output(14, 0)
-RPi.GPIO.output(15, 0)
-RPi.GPIO.output(16, 0)
-RPi.GPIO.output(17, 0)
-RPi.GPIO.output(18, 0)
+RPi.GPIO.setwarnings(False)
+for i in range(11,19):
+    RPi.GPIO.setup(i, RPi.GPIO.OUT)
+    RPi.GPIO.output(i, 0)
+
 
 def clgpio():
     for i in range(11, 19):
@@ -28,7 +17,6 @@ def clgpio():
     time.sleep(0.5)
 
 def cb(message):
-
     if message.data == 'I love you':
         # 143
         RPi.GPIO.output(11, 1)
