@@ -30,9 +30,10 @@ PCのキーボードから入力した文章はパブリッシャのノードで
 
 以下の図のように，Raspberry PiとLEDを接続する．
 
-![](https://i.gyazo.com/0ef4ae9163ba8614c9089770a8faaee9.png)
+![](https://i.gyazo.com/29f4af83c74adf4d76130f8bf600a0de.png)
 
 ![](https://i.gyazo.com/c209de0f59cd3cb7d55deac9a3d7c219.jpg)
+
 ---
 使用方法
 ---
